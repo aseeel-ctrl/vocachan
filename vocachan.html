@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocaChan</title>
+  <link rel="icon" href="icon12.png" type="image/png">
+  <style>
+
+    h1, h2, h3, h4, h5, h6 {
+     margin: 0;
+    }
+    html, body {
+    height: 300%;
+    }
+
+    body {
+      height: 100%;
+      background: linear-gradient(to bottom, #014a18 5%, #e6d166 15%, #dfaf56 210%);
+      font-family: sans-serif;
+      color: #870113;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      margin: 0;
+      font-size: 280px;
+      font-family: 'Courier Prime', monospace;
+      padding: 2rem;
+      text-align: center;
+    }
+      header h1 {
+     margin: 0;
+     font-size: 4.8rem; /* más grande si querés */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 1rem; /* espacio entre ícono y texto */
+    }
+   .boards {
+  border: 2px solid #014a18;
+  border-radius: 3px;
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  font-family: 'Courier Prime', monospace;
+  overflow: hidden;
+}
+
+.boards-header {
+  background-color: #014a18;
+  color: #fff3d2;
+  padding: 0.3rem 1.2rem;
+}
+
+.boards-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.boards-content {
+  background-color: #fae1a7d3;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.board-item {
+  width: 45%;
+}
+
+.board-item a {
+  font-size: 1.5rem;
+  color: #920101;
+  text-decoration: none;
+}
+
+.board-item a:hover {
+  text-decoration: underline;
+  color: #014a18;
+}
+
+.board-item p {
+  font-size: 0.85rem;
+  color: #014a18;
+  margin: 0.3rem 0 0 0;
+}
+   .section-link {
+      text-decoration: none;
+    }
+   .section {
+     background-color: #316d4c;
+     border: 2px solid #ccc;
+     border-radius: 5px;
+     padding: 0.5rem;        /* Reducir el relleno interno */
+     width: 140px;           /* Menor ancho */
+     text-align: center;
+     transition: background-color 0.3s ease;
+    }
+    .section:hover {
+      background-color: #c94a4a;
+      text-decoration: underline;
+       color: #014a18;
+    }
+    
+    .section h2 {
+     margin-top: 0;
+     font-family: 'Courier Prime', monospace;
+     font-size: 2rem;     /* Más chico */
+     color: #15342d;
+    }
+
+    .section p {
+      font-family: 'Courier Prime', monospace;
+     font-size: 3rem;     /* Más chico */
+     color: #570303;
+     margin: 0.3rem 0 0 0;   /* Reducir espacio vertical */
+    }
+
+    .icono-titulo {
+     width: 80px;      /* o el tamaño que prefieras */
+     height: 80px;
+    }
+   .descripcion {
+     border: 2px solid #014a18;
+     border-radius: 3px;
+     width: 80%;
+     max-width: 800px;
+     margin: 2rem auto;
+     font-family: 'Courier Prime', monospace;
+     overflow: hidden;
+    }
+
+/* Header del bloque */
+   .descripcion-header {
+     background-color: #014a18;
+     color: #fff3d2;
+     padding: 0.3rem 1.2rem;
+    }
+
+   .descripcion-header h3 {
+     margin: 0;
+     font-size: 1rem;
+    }
+
+/* Texto de descripción */
+   .descripcion-texto {
+      background-color: #fae1a7d3;
+     color: #014a18;
+     padding: 1rem 1.2rem;
+     font-size: 1rem;
+    }
+    .descripcion-anuncio{
+ background-color: #fae1a7d3;
+     color: #ca031a;
+     padding: 1rem 1.2rem;
+     font-size: 2rem;
+     font-weight: bolder;
+
+    }
+     .thread {
+        background-color: #fae1a7d3;
+     border: 2px solid #014a18;
+     border-radius: 3px;
+     width: 80%;
+     max-width: 800px;
+     margin: 1rem auto;
+     font-family: 'Courier Prime', monospace;
+     overflow: hidden;
+    }
+
+   .thread-header {
+  background-color: #014a18;
+  color: #fff3d2;
+  padding: 0.3rem 1.2rem;
+  font-size: 1rem;
+}
+  .thread-texto {
+      background-color: #fae1a7d3;
+     color: #014a18;
+     padding: 1rem 1.2rem;
+     font-size: 0.8rem;
+    }
+  .thread-grid {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 1rem;
+     padding-top: 1rem;
+    }
+
+  .thread-box {
+     padding: 0.5rem;
+     text-align: center;
+     font-size: 0.9rem;
+     color: #014a18;
+}
+
+  .thread-box img {
+     width: 80%;
+     height: 160px; /* Alto uniforme */
+     object-fit: cover; /* Recorta manteniendo proporción */
+     border-radius: 3px;
+     margin-bottom: 1rem;
+     margin-left: 0.5rem;
+     margin-right: 0.5rem;
+     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); /* Opcional para dar profundidad */
+}
+
+.boards-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.stats {
+  margin-top: 2rem;
+  background-color: #fae1a7d3;
+  border: 2px solid #014a18;
+  border-radius: 3px;
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  font-family: 'Courier Prime', monospace;
+  overflow: hidden;
+}
+
+.stats-header {
+  background-color: #014a18;
+  color: #fff3d2;
+  padding: 0.3rem 1.2rem;
+}
+
+.stats-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  text-align: center;
+}
+
+.stats-box {
+  padding: 0.1rem;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.stats-title {
+  font-size: 0.9rem;
+  color: #014a18;
+  margin-bottom: 0.4rem;
+}
+
+.stats-number {
+  font-size: 1rem;
+  color: #920101;
+  margin: 0;
+}
+
+.footer-links {
+  background-color: #fae1a79f;
+  border: 2px solid #014a18;
+  border-radius: 3px;
+  width: 75%;
+  max-width: 750px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Courier Prime', monospace;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: #014a18;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.footer-links a:hover {
+  background-color: #014a18;
+  color: #fff3d2;
+  text-decoration: underline;
+}
+
+.footer-nav {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  color: #014a18;
+  font-family: 'Courier Prime', monospace;
+}
+
+.footer-nav a {
+  color: #014a18;
+  text-decoration: none;
+  margin: 0 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #920101;
+  text-decoration: underline;
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #014a18;
+  margin: 1rem 0 2rem;
+  font-family: 'Courier Prime', monospace;
+}
+.contador-caja {
+  background-color: #ff7953d3;
+  border: 0px solid #fae1a7d3;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  border-bottom-width:2.5rem ;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+}
+#contador {
+  font-size: 3rem;
+  color: red;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Voca-Chan 
+        <img src="icon12.png" alt="icono de VocaChan" class="icono-titulo">
+    </h1>
+  </header>
+  <div class="descripcion">
+<div class="descripcion-anuncio">
+      <p>
+        ATENCIÓN: ESTE SITIO SERÁ ELIMINADO DENTRO DE LAS PRÓXIMAS 24 HORAS, ARCHIVEN LO NECESARIO MIENTRAS PUEDAN.
+      </p>
+    </div>
+      <div class="contador-caja">
+    <div id="contador"></div>
+  </div>
+  </div>
+  
+  <div class="descripcion">
+    <div class="descripcion-header">
+      <h3>¿Qué es Voca-Chan?</h3>
+    </div>
+    <div class="descripcion-texto">
+      <p>
+        Voca-Chan es una plataforma de foros para compartir memes, debatir ideas y explorar distintos intereses culturales con humor e intensidad.
+      </p>
+    </div>
+  </div>
+
+ <div class="boards">
+  <div class="boards-header">
+    <h3>Boards</h3>
+  </div>
+  <div class="boards-content">
+    <div class="board-item">
+      <a href="404.html"> /a/ Anime</a>
+      <p>/animu/ - discute tus series favoritas</p>
+    </div>
+    <div class="board-item">
+      <a href="404.html">/f/ Debate</a>
+      <p>/fight/ - argumentos intensos</p>
+    </div>
+    <div class="board-item">
+      <a href="memes.html">/l/ Memes</a>
+      <p>/lol/ - humor crudo y refinado</p>
+    </div>
+    <div class="board-item">
+      <a href="inquisicion.html">/b/ Inquisición</a>
+      <p>/burn/ - cuestionamientos e ironía</p>
+    </div>
+     <div class="board-item">
+      <a href="404.html">/m/ Música</a>
+      <p>/melody/ - Análisis musicales</p>
+    </div>
+     <div class="board-item">
+      <a href="404.html">/v/ Videojuegos</a>
+      <p>/videogames/ - Estrategia, speedrun y análisis</p>
+    </div>
+     <div class="board-item">
+      <a href="random.html">/r/ Random</a>
+      <p>/randomized/ - Aleatorio --REVISAR REGLAS NUEVAS--</p>
+    </div>
+     <div class="board-item">
+      <a href="404.html">/sc/ Social</a>
+      <p>/interaction/ - Amigos y chats</p>
+    </div>
+     <div class="board-item">
+      <a href="404.html">/tr/ Trash</a>
+      <p>/untamed/ - No hay reglas</p>
+    </div>
+    <div class="board-item">
+      <a href="vocaverso.html">/vv/ Vocaverso</a>
+      <p>/multiverse/ - Hitos de Voca-Chan</p>
+    </div>
+  </div>
+</div>
+ <div class="thread">
+  <div class="thread-header">
+    <h3>Hilos Recientes</h3>
+  </div>
+   <div class="thread-texto"></div>
+   <div class="thread-grid">
+  <div class="thread-box">
+    <img src="paint.png" alt="hilo 1">
+    <p><strong>/a/</strong> Nuevo episodio de 'Mythic Hearts'</p>
+  </div>
+  <div class="thread-box">
+    <img src="rain.jpeg" alt="hilo 2">
+    <p><strong>/v/</strong> Speedrun de VocaQuest 2</p>
+  </div>
+  <div class="thread-box">
+    <img src="Teto 11.jpg" alt="hilo 3">
+    <p><strong>/m/</strong> ¿Álbum conceptual favorito?</p>
+  </div>
+  <div class="thread-box">
+    <img src="pepe.jpg" alt="hilo 4">
+    <p><strong>/l/</strong> Pepe ha mutado otra vez</p>
+  </div>
+  <div class="thread-box">
+    <img src="bien.jpeg" alt="hilo 5">
+    <p><strong>/vv/</strong> Nuevo mapa interactivo</p>
+  </div>
+  <div class="thread-box">
+    <img src="Teto 10.jpg" alt="hilo 6">
+    <p><strong>/r/</strong> Este dibujo me representa</p>
+  </div>
+  <div class="thread-box">
+    <img src="ejemplo3.jpg" alt="hilo 7">
+    <p><strong>/f/</strong> ¿Es Kant superior a Hegel?</p>
+  </div>
+  <div class="thread-box">
+    <img src="jar.jpeg" alt="hilo 8">
+    <p><strong>/tr/</strong> No me juzguen por esto</p>
+  </div>
+</div>
+</div> 
+<div class="stats">
+  <div class="stats-header">
+    <h3>Stats</h3>
+  </div>
+  <div class="stats-grid">
+    <div class="stats-box">
+      <p class="stats-title">Usuarios</p>
+      <p class="stats-number">1245</p>
+    </div>
+    <div class="stats-box">
+      <p class="stats-title">Posts</p>
+      <p class="stats-number">8390</p>
+    </div>
+    <div class="stats-box">
+      <p class="stats-title">Contenido</p>
+      <p class="stats-number">213</p>
+    </div>
+  </div>
+</div>
+<div class="footer-links">
+  <a href="vocachan.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="trollface.html">Blog</a>
+  <a href="FAQ.html">FAQ</a>
+  <a href="trollface.html">Rules</a>
+  <a href="404.html">Support Voca-Chan</a>
+  <a href="404.html">Advertise</a>
+  <a href="trollface.html">Press</a>
+  <a href="vocachan.html">日本語</a>
+</div>
+
+<div class="footer-nav">
+  <a href="about.html">About</a> • 
+  <a href="Trollface.png">Feedback</a> • 
+  <a href="trollface.html">Legal</a> • 
+  <a href="about.html">Contact</a>
+</div>
+
+<div class="footer-copy">
+  Copyright © 2003–2025 VocaChan community support LLC. All rights reserved.
+</div>
+  </main>
+
+<script>
+  const contador = document.getElementById("contador");
+
+  // Revisar si ya existe una fecha guardada
+  let expiracion = localStorage.getItem("voca_expiracion");
+
+  if (!expiracion) {
+    // Si no existe, establecer 72 horas desde ahora
+    const ahora = new Date().getTime();
+    expiracion = ahora + 24 * 60 * 60 * 1000;
+    localStorage.setItem("voca_expiracion", expiracion);
+  } else {
+    // Convertir de string a número
+    expiracion = parseInt(expiracion);
+  }
+
+  const intervalo = setInterval(function () {
+    const ahora = new Date().getTime();
+    const tiempoRestante = expiracion - ahora;
+
+    if (tiempoRestante <= 0) {
+      clearInterval(intervalo);
+      contador.innerHTML = "¡Tiempo agotado!";
+      return;
+    }
+
+    const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+
+    contador.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+  }, 1000);
+</script>
+</script>
+</body>
+</html>

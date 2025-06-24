@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocaChan</title>
+  <link rel="icon" href="icon12.png" type="image/png">
+  <style>
+
+    h1, h2, h3, h4, h5, h6 {
+     margin: 0;
+    }
+    html, body {
+  height: auto;
+  min-height: 100%;
+}
+
+     body {
+      height: 100%;
+      background: linear-gradient(to bottom, #014a18 5%, #e6d166 15%, #dfaf56 210%);
+      font-family: sans-serif;
+      color: #870113;
+      margin: 0;
+      padding: 0;
+    }
+   header {
+  margin: 0;
+  font-family: 'Courier Prime', monospace;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.post-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.icono-titulo {
+  width: 60px;
+  height: auto;
+}
+
+.board-container {
+  width: 85%;
+  max-width: 900px;
+  margin: 2rem auto;
+  font-family: 'Courier Prime', monospace;
+}
+
+.thread, .reply {
+  border: 2px solid #014a18;
+  background-color: #fae1a7d3;
+  color: #014a18;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  padding: 0.7rem;
+}
+
+.post-header {
+  font-size: 0.8rem;
+  color: #870113;
+  margin-bottom: 0.5rem;
+}
+
+.poster-name {
+  font-weight: bold;
+  color: #014a18;
+}
+
+.post-id {
+  float: right;
+  color: #870113;
+}
+
+.post-content {
+  font-size: 1rem;
+}
+
+.post-content p {
+  margin: 0.5rem 0 0 0;
+  white-space: pre-wrap;
+}
+
+.post-image {
+  max-width: 180px;
+  height: auto;
+  margin-right: 1rem;
+  float: left;
+  border: 2px solid #014a18;
+  border-radius: 3px;
+}
+.reply {
+  border: 2px solid #014a18;
+  background-color: #fae1a7c0;
+  color: #014a18;
+  margin: 0.8rem 0 0.8rem auto;
+  border-radius: 3px;
+  padding: 0.6rem;
+  width: 75%;
+  max-width: 680px;
+  margin-right: 2rem; /* empuja hacia la derecha */
+  font-size: 0.85rem;
+  box-shadow: 1px 1px 4px #014a1880;
+}
+.hilo-cerrado {
+  background-color: #870113;
+  color: #fff3d2;
+  border: 2px solid #014a18;
+  border-radius: 3px;
+  width: 85%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.95rem;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(1, 74, 24, 0.4);
+  letter-spacing: 1px;
+}
+.footer-links {
+  background-color: #fae1a79f;
+  border: 2px solid #014a18;
+  border-radius: 3px;
+  width: 75%;
+  max-width: 750px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Courier Prime', monospace;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: #014a18;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.footer-links a:hover {
+  background-color: #014a18;
+  color: #fff3d2;
+  text-decoration: underline;
+}
+
+.footer-nav {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  color: #014a18;
+  font-family: 'Courier Prime', monospace;
+}
+
+.footer-nav a {
+  color: #014a18;
+  text-decoration: none;
+  margin: 0 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #920101;
+  text-decoration: underline;
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #014a18;
+  margin: 1rem 0 2rem;
+  font-family: 'Courier Prime', monospace;
+}
+</style>
+</head>
+
+<body>
+ <header>
+    <h1>Voca-Chan 
+        <img src="icon12.png" alt="icono de VocaChan" class="icono-titulo">
+    </h1>
+  </header>
+<div class="board-container">
+  <div class="thread">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:17:05</span> 
+      <span class="post-id">No.123456</span>
+    </div>
+    <div class="post-content">
+      <img src="Teto 10.jpg" alt="Ejemplo" class="post-image">
+      <p>Miren, hice este edit de teto, ¿Qué opinan? Se lo mostré a mi mamá y dijo que estaba tierno.</p>
+    </div>
+  </div>
+
+  <div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:20:14</span> 
+      <span class="post-id">No.123457</span>
+    </div>
+    <div class="post-content">
+      <p>&gt;&gt;123456 <br> Si se ve tierno... Aunque por qué le pedirías la opinión A TU MADRE de todas las personas... Buen trabajo.</p>
+    </div>
+  </div>
+
+  <div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:23:00</span> 
+      <span class="post-id">No.123458</span>
+    </div>
+    <div class="post-content">
+      <img src="Teto 9.jpg" alt="Iconito" class="post-image">
+      <p>&gt;&gt;123456 <br> Anon, tu imagen es TREMENDAMENTE FEA. Decidí hacer una mejor, de nada lol.  </p>
+    </div>
+  </div>
+
+<div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:20:14</span> 
+      <span class="post-id">No.123457</span>
+    </div>
+    <div class="post-content">
+      <p>&gt;&gt;123456 <br>>a las mujeres lo único que les importa de un hombre es la apariencia y todas hablan abiertamente de ello
+K-Drama es muy blackpilling.</p>
+    </div>
+  </div>
+
+ <div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:23:00</span> 
+      <span class="post-id">No.123458</span>
+    </div>
+    <div class="post-content">
+      <img src="Teto 15.jpg" alt="Iconito" class="post-image">
+      <p>&gt;&gt;123456 <br> Lo que le falta a todos ustedes es una clase decente de estética. Miren este que hice y0, está más pulido.  </p>
+    </div>
+  </div>
+
+<div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:23:00</span> 
+      <span class="post-id">No.123458</span>
+    </div>
+    <div class="post-content">
+      <img src="Teto 12.jpg" alt="Iconito" class="post-image">
+      <p>&gt;&gt;123456 <br> La pera del día final. </p>
+    </div>
+  </div>
+
+<div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:20:14</span> 
+      <span class="post-id">No.123457</span>
+    </div>
+    <div class="post-content">
+      <p>&gt;&gt;123456 <br>¿Has notado alguna vez que ninguno de los que están en la cima, los que están en el poder, los políticos y los líderes -incluso los que dicen que son cristianos- nunca hablan de satanás/demonios como fuente de maldad, mentiras y destrucción?
+</p>
+    </div>
+  </div>
+
+<div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:20:14</span> 
+      <span class="post-id">No.123457</span>
+    </div>
+    <div class="post-content">
+      <p>&gt;&gt;123456 <br>Es porque satanas esta detras de todo - todas las cosas mas malvadas, enfermas y atrasadas que suceden, si escarbas lo suficiente, el esta ahi escondido detras de muchas capas de mentiras. Y aquellos en el poder lo saben, solo que no quieren que lo sepas; porque muchos de ellos sirven a satanas, y lo hacen por poder, riqueza y estatus.
+</p>
+    </div>
+  </div>
+
+
+<div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:23:00</span> 
+      <span class="post-id">No.123458</span>
+    </div>
+    <div class="post-content">
+      <img src="Teto 11.jpg" alt="Iconito" class="post-image">
+      <p>&gt;&gt;123456 <br> LMAO miren: hor hor hor hor hor. </p>
+    </div>
+  </div>
+
+  <div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:20:14</span> 
+      <span class="post-id">No.123457</span>
+    </div>
+    <div class="post-content">
+      <p>&gt;&gt;123456 <br>> saca ese humor DE RETRASADO NORMIE DE AQUÍ.</p>
+    </div>
+  </div>
+
+<div class="board-container">
+    <div class="thread">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:23:00</span> 
+      <span class="post-id">No.123458</span>
+    </div>
+    <div class="post-content">
+      <img src="Teto 13.jpg" alt="Iconito" class="post-image">
+      <p>&gt;&gt;123456 <br>Sobre un post de otro Anon reciente. Hay que volver a los orígenes de Voca Chan de nuevo, no podemos dejar que los normies masacren nuestros valores e intenten  implementar su agenda "Woke", si ÉL siguiera aquí estaría todo bien... </p>
+    </div>
+    </div>
+  </div>
+
+ <div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:20:14</span> 
+      <span class="post-id">No.123457</span>
+    </div>
+    <div class="post-content">
+         <img src="pepe2.jpg" alt="Iconito" class="post-image">
+      <p>&gt;&gt;123456 <br> QUÉ TE PASA!!! No leíste el último aviso de que la página está bajo investigación? Van a terminar eliminandola a este paso!!!!</p>
+    </div>
+  </div>
+
+
+ <div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:20:14</span> 
+      <span class="post-id">No.123457</span>
+    </div>
+    <div class="post-content">
+      <p>&gt;&gt;123456 <br>MUY CIERTO OP!!! No escuches a los detractores, eventualmente podremos llevar al cabo nuestro plan del congreso.</p>
+    </div>
+  </div>
+
+ <div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:20:14</span> 
+      <span class="post-id">No.123457</span>
+    </div>
+    <div class="post-content">
+      <p>&gt;&gt;123456 <br>NUESTRAS VOCES SERÁN ESCUCHADAS!!!!!</p>
+    </div>
+  </div>
+
+<div class="reply">
+    <div class="post-header">
+      <span class="poster-name">Anonymous</span> 
+      <span class="post-time">06/23/25(Tue)22:20:14</span> 
+      <span class="post-id">No.123457</span>
+    </div>
+    <div class="post-content">
+         <img src="Teto 14.jpg" alt="Iconito" class="post-image">
+      <p>&gt;&gt;123456 <br> Teto Chan justo donde debería estar.</p>
+    </div>
+  </div>
+
+<div class="hilo-cerrado">
+  HILO TERMINADO POR INVESTIGACIÓN GUBERNAMENTAL EN CURSO
+</div>
+
+</div>
+
+
+
+<div class="footer-links">
+  <a href="vocachan.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="404.html">Blog</a>
+  <a href="FAQ.html">FAQ</a>
+  <a href="trollface.html">Rules</a>
+  <a href="404.html">Support Voca-Chan</a>
+  <a href="404.html">Advertise</a>
+  <a href="404.html">Press</a>
+  <a href="inquisicion.html">日本語</a>
+</div>
+
+<div class="footer-nav">
+  <a href="about.html">About</a> • 
+  <a href="feedback.html">Feedback</a> • 
+  <a href="legal.html">Legal</a> • 
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="footer-copy">
+  Copyright © 2003–2025 VocaChan community support LLC. All rights reserved.
+</div>
+  </main>
+
+
+</body>
+    
+</html>
